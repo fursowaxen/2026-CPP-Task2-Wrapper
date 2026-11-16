@@ -31,10 +31,10 @@ void Engine::register_command(std::unique_ptr<WrapperBase> wrapper, const std::s
 }
 
 std::string Engine::execute(const std::string& alias, const Arguments& arguments) const {
-    const auto it = m_commands.find(alias);
-    if (it == m_commands.end()) {
+    const auto iterator = m_commands.find(alias);
+    if (iterator == m_commands.end()) {
         throw std::invalid_argument("Unknown command: " + alias);
     }
-    return it->second->execute(arguments);
+    return iterator->second->execute(arguments);
 }
 
