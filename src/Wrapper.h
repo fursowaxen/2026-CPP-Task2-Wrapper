@@ -150,7 +150,7 @@ private:
             keys.push_back(item.first);
         }
 
-        m_executor = [object, method, defaults = std::move(defaults), keys = std::move(keys)] (const Arguments& replacements) -> std::string {
+        m_executor = [object, method, defaults = std::move(defaults), keys = std::move(keys)](const Arguments& replacements) -> std::string {
             Arguments actual = defaults;
             for (const auto& replacement : replacements) {
                 auto it = actual.find(replacement.first);
